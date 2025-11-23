@@ -49,7 +49,16 @@ solid/
    .venv\Scripts\Activate.ps1  # On Windows PowerShell
    ```
 
-3. **Install dependencies**:
+3. **Install the package and dependencies**:
+   
+   Install the package in editable mode (this allows you to use the `weather-cli` command):
+   ```powershell
+   pip install -e .
+   ```
+   
+   This will automatically install all dependencies from `requirements.txt` and set up the CLI command.
+   
+   **Alternative:** If you only want dependencies without the CLI command:
    ```powershell
    pip install -r requirements.txt
    ```
@@ -87,51 +96,63 @@ run_pipeline(
 
 ### 2. Running from CLI
 
-The CLI provides a convenient command-line interface:
+The CLI provides a convenient command-line interface. There are two ways to run it:
+
+#### Installation Method
+
+**Option A: Using the CLI command (recommended)**
+- Requires: `pip install -e .` (editable install)
+- Command: `weather-cli run input.csv output.csv`
+
+**Option B: Using Python module**
+- Requires: Dependencies installed (`pip install -r requirements.txt`)
+- Command: `python -m weather_module.cli run input.csv output.csv`
 
 #### Basic Usage
 
 ```powershell
-# Basic usage with default settings
-python -m weather_module.cli run input.csv output.csv
-
-# Or using the entry point (after installing with pip install -e .)
+# Using the CLI command (after pip install -e .)
 weather-cli run input.csv output.csv
+
+# Or using Python module directly
+python -m weather_module.cli run input.csv output.csv
 ```
 
 #### CLI Options
 
+All examples below use `weather-cli` (can be replaced with `python -m weather_module.cli`):
+
 ```powershell
 # Use Fahrenheit instead of Celsius
-python -m weather_module.cli run input.csv output.csv --units F
+weather-cli run input.csv output.csv --units F
 
 # Include detailed weather data (pressure, humidity, UV, etc.)
-python -m weather_module.cli run input.csv output.csv --detailed
+weather-cli run input.csv output.csv --detailed
 
 # Process only first 5 rows
-python -m weather_module.cli run input.csv output.csv --max-rows 5
+weather-cli run input.csv output.csv --max-rows 5
 
 # Disable caching
-python -m weather_module.cli run input.csv output.csv --no-cache
+weather-cli run input.csv output.csv --no-cache
 
 # Set custom cache TTL (in seconds)
-python -m weather_module.cli run input.csv output.csv --ttl 600
+weather-cli run input.csv output.csv --ttl 600
 
 # Use bulk API endpoint (faster for multiple locations)
-python -m weather_module.cli run input.csv output.csv --bulk
+weather-cli run input.csv output.csv --bulk
 
 # Verbose output
-python -m weather_module.cli run input.csv output.csv --verbose
+weather-cli run input.csv output.csv --verbose
 
 # Combine multiple options
-python -m weather_module.cli run input.csv output.csv --units both --detailed --verbose --max-rows 3
+weather-cli run input.csv output.csv --units both --detailed --verbose --max-rows 3
 ```
 
 #### Example
 
 ```powershell
 # Process example locations with detailed data
-python -m weather_module.cli run csv_examples/example_locations.csv weather_output.csv --detailed --verbose
+weather-cli run csv_examples/example_locations.csv weather_output.csv --detailed --verbose
 ```
 
 ### 3. Using HTTP Endpoints
@@ -326,12 +347,4 @@ The project follows clean architecture principles:
 - **Models** (`models/`): Data structures (Location, WeatherData)
 - **CLI** (`cli.py`): Command-line interface
 - **Pipeline** (`pipeline.py`): End-to-end processing orchestration
-
-## License
-
-[Your License Here]
-
-## Contributing
-
-[Your Contributing Guidelines Here]
 
