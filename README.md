@@ -15,7 +15,7 @@ A Python-based weather data processing module that fetches weather information f
 ## Project Structure
 
 ```
-solid/
+weather-data-module/
 ├── src/
 │   └── weather_module/
 │       ├── api/              # External WeatherAPI client
