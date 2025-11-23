@@ -1,0 +1,5 @@
+country,state,city,zip_code,temp_c,clouds,wind_speed_kph
+Germany,,Berlin,,0.3,0,13.3
+United States,New York,New York,10001,2.8,0,3.6
+France,,Paris,75001,9.1,0,6.8
+Israel,Tel Aviv District,Tel Aviv,,32.1,0,4.3

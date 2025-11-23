@@ -1,0 +1,59 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+# Allow .env.example to be tracked
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Test output and temporary files
+*.csv
+!csv_examples/*.csv
+
+# Debug scripts (development only)
+debug_*.py
+
+# PDF files (exercise description - not needed in repo)
+*.pdf
+
+# Development guide files (content consolidated in README.md)
+HOW_TO_RUN_*.md
+DEVELOPMENT_GUIDE.md
+ENV_SETUP.md
+IMPORT_ERROR_FIX.md
+
+# Keep README.md and tests/README.md
+!README.md
+!tests/README.md

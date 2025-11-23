@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weather-module"
+version = "0.1.0"
+description = "Weather API module"
+requires-python = ">=3.8"
+
+[project.scripts]
+weather-cli = "weather_module.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["weather_module"]
+
